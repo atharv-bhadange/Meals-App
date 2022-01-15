@@ -11,16 +11,20 @@ class CategoryItem extends StatelessWidget {
   final Color color;
 
   void selectCategory(BuildContext ctx) {
-    Navigator.push(
-      ctx,
-      MaterialPageRoute(
-        builder: (_) => CategoryMealScreen(
-          categoryTitle: title,
-          categoryId: id,
-        ),
-        // fullscreenDialog: true,
-      ),
-    );
+    Navigator.pushNamed(
+        ctx,
+        // MaterialPageRoute(
+        //   builder: (_) => CategoryMealScreen(
+        //     categoryTitle: title,
+        //     categoryId: id,
+        //   ),
+        //   // fullscreenDialog: true,
+        // ),
+        '/category-meal',
+        arguments: {
+          'id': id,
+          'title': title,
+        });
   }
 
   @override
