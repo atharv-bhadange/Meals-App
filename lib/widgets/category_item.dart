@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart ';
 
-import './category_meal_screen.dart';
+import '../screens/category_meal_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem(
@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
         //   ),
         //   // fullscreenDialog: true,
         // ),
-        '/category-meal',
+        CategoryMealScreen.routeName,
         arguments: {
           'id': id,
           'title': title,
