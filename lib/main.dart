@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/categories_screen.dart';
 import 'screens/category_meal_screen.dart';
+import 'screens/meal_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,11 +22,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red,
         ).copyWith(
           secondary: Colors.orange,
+          surface: Colors.amber,
         ),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
+                fontSize: 15,
               ),
               bodyText2: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
@@ -40,7 +43,10 @@ class MyApp extends StatelessWidget {
       routes: {
 //        '/': (ctx) => CategoriesScreen(), //default name '/' for first page
         CategoryMealScreen.routeName: (ctx) => const CategoryMealScreen(),
+        MealDetail.routeName: (ctx) => const MealDetail(),
       },
+      // onGenerateRoute: //used as deafult route if mentioned route is not available
+      // onUnknownRoute: , //last resort e.g. 404 page
     );
   }
 }
