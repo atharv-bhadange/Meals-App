@@ -4,15 +4,16 @@ import '/models/meal.dart';
 import '/screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem(
-      {Key? key,
-      required this.id,
-      required this.affordability,
-      required this.complexity,
-      required this.duration,
-      required this.imageUrl,
-      required this.title})
-      : super(key: key);
+  const MealItem({
+    Key? key,
+    required this.id,
+    required this.affordability,
+    required this.complexity,
+    required this.duration,
+    required this.imageUrl,
+    required this.title,
+    required this.removeItem,
+  }) : super(key: key);
 
   final String id;
   final String title;
@@ -20,6 +21,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   String get complexityText {
     switch (complexity) {
@@ -50,7 +52,15 @@ class MealItem extends StatelessWidget {
   }
 
   void selectMeal(BuildContext context) {
-    Navigator.pushNamed(context, MealDetail.routeName, arguments: id);
+    Navigator.pushNamed(
+      context,
+      MealDetail.routeName,
+      arguments: id,
+    ).then((value) {
+      if (value != null) {
+        removeItem(value);
+      }
+    }); //then is executed when page is poped
   }
 
   @override
