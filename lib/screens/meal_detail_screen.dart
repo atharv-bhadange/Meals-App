@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 
 class MealDetail extends StatelessWidget {
-  const MealDetail({Key? key}) : super(key: key);
+  const MealDetail(this.toggleFav, this.isFav, {Key? key}) : super(key: key);
   static const routeName = '/meal-detail';
+
+  final Function toggleFav;
+  final Function isFav;
 
   Widget buildSectionTitle(String title, BuildContext context) {
     return Container(
@@ -46,6 +49,14 @@ class MealDetail extends StatelessWidget {
         title: Text(
           selectedMeal.title,
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isFav(mealId) ? Icons.star : Icons.star_border,
+            ),
+            onPressed: () => toggleFav(mealId),
+          ),
+        ],
         //leading: const Icon(Icons.line_weight),
       ),
       body: SingleChildScrollView(

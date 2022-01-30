@@ -39,7 +39,7 @@ class _TabsScreenTopState extends State<TabsScreenTop> {
           body: const TabBarView(
             children: [
               CategoriesScreen(),
-              FavoritesScreen(),
+              // FavoritesScreen(), //uncomment and pass favorite list from main.dart
             ],
           ),
         ),
