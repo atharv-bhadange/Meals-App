@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen(this.currentFilters, this.saveFilters);
+  const FiltersScreen(this.currentFilters, this.saveFilters, {Key? key})
+      : super(key: key);
   static const routeName = '/filters';
   final Function saveFilters;
   final Map<String, bool> currentFilters;
